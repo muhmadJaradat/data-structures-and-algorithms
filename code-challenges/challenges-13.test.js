@@ -8,6 +8,8 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
 // Solution code here...
+  return arr.map(result => result.length).indexOf(Math.max(...arr.map(result => result.length)));
+
 };
   
 /* ------------------------------------------------------------------------------------------------
@@ -20,6 +22,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  return arr.map(result => result.charAt(0));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,6 +36,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  return arr.filter(result => result.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,10 +49,11 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(result => result.substring(1, 4) + result.substring(6, 9) + result.substring(10, 14));
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -56,16 +62,18 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  return str.split('').reduce((acc, val, idx) => (idx % 2 !== 0) ? acc += val : acc, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
   // Solution code here...
+  return ((arr.filter(result => !(result.includes(':)'))).length > 0) ? false : true);
 };
 
 /* ------------------------------------------------------------------------------------------------
